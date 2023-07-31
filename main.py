@@ -12,7 +12,6 @@ session_name = 'egorich'
 api_id = 2724818
 api_hash = '6c677b0f0e2af14a53cbf0c0eafe5886'
 white_list_map = {735406398: "Egor",
-                  463867578: 'Gosha',
                   534072729: 'Tim',
                   791143287: "Artem kydr"}
 direct_history = {}
