@@ -11,9 +11,7 @@ import randstuff
 session_name = 'egorich'
 api_id = 2724818
 api_hash = '6c677b0f0e2af14a53cbf0c0eafe5886'
-white_list_map = {735406398: "Egor",
-                  791143287: "Artem kydr",
-                  1058082172: 'Nastya'}
+white_list_map = {1058082172: 'Nastya'}
 direct_history = {}
 
 # Code execution
@@ -32,11 +30,13 @@ with TelegramClient(session_name, api_id, api_hash) as client:
                     return
 
                 print(white_list_map[event.original_update.user_id], 'печатает в', current_time)
-                await client.send_message(entity=event.original_update.user_id, message=randstuff.get_joke())
+                #await client.send_message(entity=event.original_update.user_id, message=randstuff.get_joke())
 
             if type(event.status) == telethon.tl.types.UserStatusOnline:
                 print(white_list_map[event.original_update.user_id], 'зашел в сеть в', current_time)
-                await client.send_message(entity=event.original_update.user_id, message=anekdot.get_story())
+                #await client.send_message(entity=event.original_update.user_id, message=anekdot.get_story())
+            if type(event.status) == telethon.tl.types.UserStatusOffline:
+                print(white_list_map[event.original_update.user_id], 'вышел из сети в', current_time)
 
 
     client.run_until_disconnected()
