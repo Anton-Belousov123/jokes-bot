@@ -11,7 +11,7 @@ import randstuff
 session_name = 'egorich'
 api_id = 2724818
 api_hash = '6c677b0f0e2af14a53cbf0c0eafe5886'
-white_list_map = {1058082172: 'Nastya'}
+white_list_map = {1058082172: 'Client'}
 direct_history = {}
 
 # Code execution
