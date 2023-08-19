@@ -9,6 +9,7 @@ import randstuff
 
 # Setting variables
 session_name = 'egorich'
+sanya_id = 810634195
 api_id = 2724818
 api_hash = '6c677b0f0e2af14a53cbf0c0eafe5886'
 white_list_map = {1058082172: 'Client'}
@@ -26,17 +27,17 @@ with TelegramClient(session_name, api_id, api_hash) as client:
                 if event.original_update.user_id in direct_history.keys():
                     last_update = direct_history[event.original_update.user_id]
                 direct_history[event.original_update.user_id] = time.time()
-                if last_update != 0 and time.time() - last_update < 10:
+                if last_update != 0 and time.time() - last_update < 5:
                     return
 
                 print(white_list_map[event.original_update.user_id], 'печатает в', current_time)
-                #await client.send_message(entity=event.original_update.user_id, message=randstuff.get_joke())
+                await client.send_message(entity=sanya_id, message="Пользователь печатает")
 
             if type(event.status) == telethon.tl.types.UserStatusOnline:
                 print(white_list_map[event.original_update.user_id], 'зашел в сеть в', current_time)
-                #await client.send_message(entity=event.original_update.user_id, message=anekdot.get_story())
+                await client.send_message(entity=sanya_id, message="Пользователь зашел в сеть")
             if type(event.status) == telethon.tl.types.UserStatusOffline:
                 print(white_list_map[event.original_update.user_id], 'вышел из сети в', current_time)
-
+                await client.send_message(entity=sanya_id, message="Пользователь вышел из сети")
 
     client.run_until_disconnected()
